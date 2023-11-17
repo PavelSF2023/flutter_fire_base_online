@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fire_base_online/data/listTodo.dart';
+//import 'package:cloud_firestore/cloud_firestore.dart';
+//import 'package:firebase_core/firebase_core.dart';
 
 void main() {
   runApp(const MaterialApp( home: MyApp()));
@@ -15,9 +17,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String? _userToDo;
 
+  // void initFirebase() async {
+  //   WidgetsFlutterBinding.ensureInitialized();
+  //   await Firebase.initializeApp();
+  // }
+
   @override
   void initState() {
     super.initState();
+    //initFirebase();
   }
 
   @override
@@ -72,6 +80,7 @@ class _MyAppState extends State<MyApp> {
               actions: [
                 ElevatedButton(
                   onPressed: (){
+                    //FirebaseFirestore.instance.collection('items').add({'item': _userToDo});
                     setState(() {
                       listTodo.add(_userToDo!);
                     });
